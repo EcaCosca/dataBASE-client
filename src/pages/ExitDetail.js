@@ -29,19 +29,26 @@ class ExitDetail extends Component {
     // jumpThisExitCount: 0,
   };
 
-  componentDidMount() {
-    this.getSingleExit()
-  }
+  // componentDidMount() {
+  //   this.getSingleExit()
+  // }
 
   getSingleExit = () => {
-    const {id} = this.props.match.params
+    const id = this.props.match.params.id
+    console.log("this propops", this.props)
+    console.log("IDIDIDID", id)
 
     axios.get(`http://localhost:5000/exit/exitpoint/${id}`)
     .then((response) => {
-      this.setState({listOfExits: response.data})
+      const exit = response.data
+      console.log('exit', response)
+      const { name, img, aproachLat, aproachLong, aproachDescription, exitLat, exitLong, exitDescription, landingZoneLat, landingZoneLong, landingZoneDescription, creator, altitude } = exit;
+      
+      this.setState({ name, img, aproachLat, aproachLong, aproachDescription, exitLat, exitLong, exitDescription, landingZoneLat, landingZoneLong, landingZoneDescription, creator, altitude, listOfExits: response.data})
+      
     })
-
-
+    
+    
     
   } 
 
@@ -53,15 +60,15 @@ class ExitDetail extends Component {
 
     //   this.setState( { jumpCount: updatedCount, jumpThisExitCount: updatedExitCount })
   // }
-
-
+  
+  
   render() {
     const { name, img, aproachLat, aproachLong, aproachDescription, exitLat, exitLong, exitDescription, landingZoneLat, landingZoneLong, landingZoneDescription, creator, altitude } = this.state;
-
+    
     return (
       <div>
         <h1>
-          {name}
+          hello{name}
         </h1>
 
         {/* <h2>Jumps Counter: {jumpCount}</h2>
