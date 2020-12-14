@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from './../context/auth-context';
+import ExitPreview from './../components/ExitPreview';
 
 class Private extends Component {
   render() {
@@ -10,6 +11,11 @@ class Private extends Component {
         {/* 
         <h2>Welcome {this.props.user ? this.props.user.username : null }</h2> 
         */}
+        {/* <div>
+          {this.state.articles.map((article) => <ExitPreview {...article} />)}
+        </div> */}
+
+
 
       </div>
     );

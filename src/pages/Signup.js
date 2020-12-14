@@ -10,6 +10,10 @@ class Signup extends Component {
     const { username, password } = this.state;
     
     this.props.signup( username, password );
+    this.setState({
+      username: "",
+      password: "",
+    });
   };
 
   handleChange = event => {

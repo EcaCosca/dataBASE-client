@@ -136,30 +136,22 @@ Exit model
 
 ## Links
 
-### Trello/Kanban
+### Trello
 
-[Link to your trello board](https://trello.com/b/PBqtkUFX/curasan) or picture of your physical board
+[Trello Board](https://trello.com/b/OD1odkPz/database) 
 
 ### Git
 
-The url to your repository and to your deployed project
+[Client repository Link](https://github.com/EcaCosca/dataBASE-client)
 
-[Client repository Link](https://github.com/screeeen/project-client)
-
-[Server repository Link](https://github.com/screeeen/project-server)
+[Server repository Link](https://github.com/EcaCosca/dataBASE-server)
 
 [Deployed App Link](http://heroku.com/)
 
 ### Slides
 
-The url to your presentation slides
+[Slides Link](https://docs.google.com/presentation/d/13HKi0KileYw8bGFDHcU55Mi6i4YFKxkN6zpXzdy8rcE/edit?usp=sharing)
 
-[Slides Link](http://slides.com/)
-
-Wireframe
-
-The url to your presentation slides
+<h3>Wireframe<h3/>
 
 [Figma Link](http://www.figma.com/file/GNvDVBD1NPTydU2PJy4DDM/dataBASE?node-id=0%3A88)
-
-https://www.figma.com/file/GNvDVBD1NPTydU2PJy4DDM/dataBASE?node-id=0%3A88
