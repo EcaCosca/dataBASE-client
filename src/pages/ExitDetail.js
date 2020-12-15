@@ -1,10 +1,8 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 import { withAuth } from "../context/auth-context";
 import axios from "axios";
 
-// const aproachMap = <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47707.44372139716!2d1.8134470298467127!3d41.64028635447897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4f5965e738c1d%3A0x400fae021a40550!2sCastellbell%20y%20Vilar%2C%20Barcelona!5e0!3m2!1ses!2ses!4v1607773008058!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-// const exitMap = <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47707.44372139716!2d1.8134470298467127!3d41.64028635447897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4f5965e738c1d%3A0x400fae021a40550!2sCastellbell%20y%20Vilar%2C%20Barcelona!5e0!3m2!1ses!2ses!4v1607773008058!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-// const landinghMap = <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47707.44372139716!2d1.8134470298467127!3d41.64028635447897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4f5965e738c1d%3A0x400fae021a40550!2sCastellbell%20y%20Vilar%2C%20Barcelona!5e0!3m2!1ses!2ses!4v1607773008058!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 class ExitDetail extends Component {
   state = {
     name: "",
@@ -24,17 +22,22 @@ class ExitDetail extends Component {
     // jumpThisExitCount: 0,
     isReady: false,
   };
+  
   componentDidMount() {
     this.getSingleExit();
-    
   }
+  
+  deleteSingleExit = () => {
+    const id = this.props.match.params.id;
+    axios.delete(`http://localhost:5000/exit/exitpoint/${id}`).then((response) => {
+
+    });
+  }
+  
   getSingleExit = () => {
     const id = this.props.match.params.id;
-    console.log("this propops", this.props);
-    console.log("IDIDIDID", id);
     axios.get(`http://localhost:5000/exit/exitpoint/${id}`).then((response) => {
       const exit = response.data;
-      console.log("exit", response);
       const {
         name,
         img,
@@ -94,20 +97,67 @@ class ExitDetail extends Component {
     } = this.state;
     return (
       <div>
-        <h1>{name}</h1>
         {/* <h2>Jumps Counter: {jumpCount}</h2>
         <h2>Jumps from this exit: {jumpThisExitCount}</h2>
         <button onClick={this.handleClick}> 1+</button> */}
         {/* <h4>EXIT LAT AND LONG</h4> */}
         {/* EXIT IMAGE */}
-        {/* <img src="exit.url"> </img> */}
-        {exitLat}
-        {exitLong}
-        {this.state.isReady
-          ? (<iframe width="650" height="450" src={`https://embed.windy.com/embed2.html?lat=${exitLat.toFixed(3)}lon=${exitLong.toFixed(3)}&detailLat=${exitLat.toFixed(3)}&detailLon=${exitLong.toFixed(3)}&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1`} frameborder="0"></iframe>)
-          :"Loading"
-        }
-        
+          <br/>
+        <h1>{name}</h1>
+          <br/>
+        <h3>{altitude}</h3>
+          <br/>
+        <img src={img ? img : null} />
+          <br/>
+        {/* <a href="">Edit Exit</a> */}
+          <br/>
+            <Link to="#" onClick={this.deleteSingleExit}>Delete Exit</Link>
+          <br/>
+      {/* WEATHER SECTION */}
+        <div>
+          {this.state.isReady
+            ? (<iframe width="650" height="450" src={`https://embed.windy.com/embed2.html?lat=${exitLat.toFixed(3)}lon=${exitLong.toFixed(3)}&detailLat=${exitLat.toFixed(3)}&detailLon=${exitLong.toFixed(3)}&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1`} frameborder="0"></iframe>)
+            :"Loading"
+          }
+    
+        </div>
+      {/* MAPPING SECTION */}
+        <div>
+          <h4>aproach Laitude {aproachLat}</h4>
+          <br/>
+          <h4>aproach Longitude {aproachLong}</h4>
+          <br/>
+          <h4>aproach description</h4>
+          <br/>
+          <p>
+            {aproachDescription}
+          </p>
+          <br/>
+        </div>
+        <div>
+          <h4>Exit Laitude {exitLat}</h4>
+          <br/>
+          <h4>Exit Longitude {exitLong}</h4>
+          <br/>
+          <h4>Exit description</h4>
+          <br/>
+          <p>
+            {exitDescription}
+          </p>
+          <br/>
+        </div>
+        <div>
+          <h4>Landing Zone Laitude {landingZoneLat}</h4>
+          <br/>
+          <h4>Landing Zone Longitude {landingZoneLong}</h4>
+          <br/>
+          <h4>Landing Zone description</h4>
+          <br/>
+          <p>
+            {landingZoneDescription}
+          </p>
+          <br/>
+        </div>
         
       </div>
     );
