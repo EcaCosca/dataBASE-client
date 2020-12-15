@@ -38,34 +38,35 @@ class AuthProvider extends React.Component {
       .then(() => this.setState({ isLoggedIn: false, user: null }))
       .catch((err) => console.log(err));
   }
-
-
+  me = () => {
+    authService
+      .me()
+      .then((user) => {
+        this.setState({ user });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   render() {
     const { isLoggedIn, isLoading, user } = this.state;
-    const { signup, login, logout } = this;
-
+    const { signup, login, logout, me } = this;
     if (isLoading) return <p>Loading</p>;
-
     return(
-      <Provider value={{ isLoggedIn, isLoading, user, signup, login, logout }}  >
+      <Provider value={{ isLoggedIn, isLoading, user, signup, login, logout, me }}  >
         {this.props.children}
       </Provider>
     )
   }
-
 }
-
-
 // HOC that converts regular component into a Consumer
 const withAuth = (WrappedComponent) => {
-  
   return class extends React.Component {
     render() {
       return(
         <Consumer>
           { (value) => {
-            const { isLoggedIn, isLoading, user, signup, login, logout } = value;
-
+            const { isLoggedIn, isLoading, user, signup, login, logout, me } = value;
             return (<WrappedComponent 
                       {...this.props}
                       isLoggedIn={isLoggedIn} 
@@ -74,14 +75,12 @@ const withAuth = (WrappedComponent) => {
                       signup={signup} 
                       login={login} 
                       logout={logout}
+                      me={me}
                     />)
-
           } }
         </Consumer>
         )
     }
 }
 }
-
-
 export { AuthProvider, withAuth }
