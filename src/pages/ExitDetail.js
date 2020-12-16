@@ -29,20 +29,20 @@ class ExitDetail extends Component {
   
   deleteSingleExit = () => {
     const id = this.props.match.params.id;
-    axios.delete(`http://localhost:5000/exit/exitpoint/${id}`, {withCredentials: true}).then(() => {
+    axios.delete(`${process.env.REACT_APP_API_URL}/exit/exitpoint/${id}`, {withCredentials: true}).then(() => {
       this.props.history.push("/home")
     });
   }
   editSingleExit = () => {
     const id = this.props.match.params.id;
-    axios.put(`http://localhost:5000/exit/exitpoint/${id}`).then((response) => {
+    axios.put(`${process.env.REACT_APP_API_URL}/exit/exitpoint/${id}`, {withCredentials: true}).then((response) => {
 
     });
   }
   
   getSingleExit = () => {
     const id = this.props.match.params.id;
-    axios.get(`http://localhost:5000/exit/exitpoint/${id}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_API_URL}/exit/exitpoint/${id}`, {withCredentials: true}).then((response) => {
       const exit = response.data;
       const {
         name,

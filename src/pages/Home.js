@@ -20,7 +20,7 @@ export class Home extends Component {
 
   getAllExits = () => {
     axios.get(
-      "http://localhost:5000/exit/exitpoint", 
+      `${process.env.REACT_APP_API_URL}/exit/exitpoint`, 
       {withCredentials: true}
     ).then((response) => {
       this.setState({ listOfExits: response.data });

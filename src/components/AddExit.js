@@ -39,7 +39,7 @@ class AddExit extends Component {
       altitude,
     } = this.state;
     axios
-      .post("http://localhost:5000/exit/exitpoint", {
+      .post(`${process.env.REACT_APP_API_URL}/exit/exitpoint`, {
         name,
         img,
         aproachLat,
@@ -84,7 +84,7 @@ class AddExit extends Component {
     uploadData.append("img", file);
 
     axios
-      .post("http://localhost:5000/exit/upload", uploadData, {
+      .post(`${process.env.REACT_APP_API_URL}/exit/upload`, uploadData, {
         withCredentials: true,
       })
       .then((response) => {

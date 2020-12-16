@@ -52,7 +52,7 @@ class EditExit extends Component {
     } = this.state;
     
     axios
-      .put(`http://localhost:5000/exit/exitpoint/${id}`, {
+      .put(`${process.env.REACT_APP_API_URL}/exit/exitpoint/${id}`, {
         name,
         aproachLat,
         aproachLong,
@@ -95,7 +95,7 @@ class EditExit extends Component {
 
 getSingleExit = () => {
   const id = this.props.match.params.id;
-  axios.get(`http://localhost:5000/exit/exitpoint/${id}`).then((response) => {
+  axios.get(`${process.env.REACT_APP_API_URL}/exit/exitpoint/${id}`, {withCredentials: true}).then((response) => {
     const exit = response.data;
     const {
       name,
