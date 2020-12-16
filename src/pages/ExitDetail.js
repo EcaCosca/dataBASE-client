@@ -29,7 +29,13 @@ class ExitDetail extends Component {
   
   deleteSingleExit = () => {
     const id = this.props.match.params.id;
-    axios.delete(`http://localhost:5000/exit/exitpoint/${id}`).then((response) => {
+    axios.delete(`http://localhost:5000/exit/exitpoint/${id}`, {withCredentials: true}).then(() => {
+      this.props.history.push("/home")
+    });
+  }
+  editSingleExit = () => {
+    const id = this.props.match.params.id;
+    axios.put(`http://localhost:5000/exit/exitpoint/${id}`).then((response) => {
 
     });
   }
@@ -95,6 +101,7 @@ class ExitDetail extends Component {
       creator,
       altitude,
     } = this.state;
+    const id = this.props.match.params.id;
     return (
       <div>
         {/* <h2>Jumps Counter: {jumpCount}</h2>
@@ -111,11 +118,12 @@ class ExitDetail extends Component {
           <br/>
         {/* <a href="">Edit Exit</a> */}
           <br/>
+            <Link to={`/editexit/${id}`} >Edit Exit</Link>
             <Link to="#" onClick={this.deleteSingleExit}>Delete Exit</Link>
           <br/>
       {/* WEATHER SECTION */}
         <div>
-          {this.state.isReady
+          {this.state.isReady && this.state.isReady
             ? (<iframe width="650" height="450" src={`https://embed.windy.com/embed2.html?lat=${exitLat.toFixed(3)}lon=${exitLong.toFixed(3)}&detailLat=${exitLat.toFixed(3)}&detailLon=${exitLong.toFixed(3)}&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1`} frameborder="0"></iframe>)
             :"Loading"
           }

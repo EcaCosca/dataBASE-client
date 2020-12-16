@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { withAuth } from "../context/auth-context";
+import Button from '@material-ui/core/Button'
+import GpsFixedIcon from '@material-ui/icons/GpsFixed';
+import SaveIcon from '@material-ui/icons/Save';
+
 
 class EditExit extends Component {
   state = {
@@ -19,15 +23,21 @@ class EditExit extends Component {
     creator: "",
     altitude: 0,
   };
+
+  componentDidMount() {
+    this.getSingleExit()
+  }
+
   handleChange = (event) => {
     const { name, value } = event.target;
+    console.log('event.target', event.target.value)
     this.setState({ [name]: value });
   };
   handleFormSubmit = (event) => {
     event.preventDefault();
+    const id = this.props.match.params.id
     const {
       name,
-      img,
       aproachLat,
       aproachLong,
       aproachDescription,
@@ -40,8 +50,9 @@ class EditExit extends Component {
       creator,
       altitude,
     } = this.state;
+    
     axios
-      .post("http://localhost:5000/exit/exitpoint", {
+      .put(`http://localhost:5000/exit/exitpoint/${id}`, {
         name,
         aproachLat,
         aproachLong,
@@ -54,24 +65,9 @@ class EditExit extends Component {
         landingZoneDescription,
         creator,
         altitude,
-      })
+      }, {withCredentials: true})
       .then(() => {
-        this.props.getAllExits(); // leave this comment - we will used it later
-        this.setState({
-          name: "",
-          img: "",
-          aproachLat: 0,
-          aproachLong: 0,
-          aproachDescription: "",
-          exitLat: 0,
-          exitLong: 0,
-          exitDescription: "",
-          landingZoneLat: 0,
-          landingZoneLong: 0,
-          landingZoneDescription: "",
-          creator: "",
-          altitude: 0,
-        });
+        this.props.history.push("/home")
       })
       .catch((err) => console.error(err));
   };
@@ -116,6 +112,7 @@ getSingleExit = () => {
       creator,
       altitude,
     } = exit;
+
     this.setState({
       name,
       img,
@@ -150,6 +147,7 @@ getSingleExit = () => {
       landingZoneDescription,
       altitude,
     } = this.state;
+    console.log('this.state', this.state)
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
@@ -253,12 +251,15 @@ getSingleExit = () => {
           />
           <br/>
           <div>
-            <button type="submit">Create</button>
+            <Button type="submit" startIcon={<SaveIcon/>} variant="contained" color="primary" size="" >Aproach GPS</Button>
           </div>
         </form>
-        <button onClick={this.setAproachLocation} >Aproach GeoLocation</button>
-        <button onClick={this.setExitLocation} >Exit GeoLocation</button>
-        <button onClick={this.setLandingZoneLocation} >Landing Zone GeoLocation</button>
+        <Button onClick={this.setAproachLocation} startIcon={<GpsFixedIcon/>} variant="outlined" color="primary" size="small" >Aproach GPS</Button>
+          <br/>
+        <Button onClick={this.setExitLocation} startIcon={<GpsFixedIcon/>} variant="outlined" color="primary" size="small" >Exit GPS</Button>
+          <br/>
+        <Button onClick={this.setLandingZoneLocation} startIcon={<GpsFixedIcon/>} variant="outlined" color="primary" size="small" >Landing Zone GPS</Button>
+          <br/>
       </div>
     );
   }

@@ -41,6 +41,7 @@ class AddExit extends Component {
     axios
       .post("http://localhost:5000/exit/exitpoint", {
         name,
+        img,
         aproachLat,
         aproachLong,
         aproachDescription,
@@ -52,7 +53,7 @@ class AddExit extends Component {
         landingZoneDescription,
         creator,
         altitude,
-      })
+      }, {withCredentials: true})
       .then(() => {
         this.props.getAllExits(); // leave this comment - we will used it later
         this.setState({
@@ -72,6 +73,28 @@ class AddExit extends Component {
         });
       })
       .catch((err) => console.error(err));
+  };
+  handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files);
+    const file = e.target.files[0];
+
+    const uploadData = new FormData();
+    // image => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new project in '/api/projects' POST route
+    uploadData.append("img", file);
+
+    axios
+      .post("http://localhost:5000/exit/upload", uploadData, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log("response is: ", response);
+        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+        this.setState({ img: response.data.secure_url });
+      })
+      .catch((err) => {
+        console.log("Error while uploading the file: ", err);
+      });
   };
   setAproachLocation = () => {
     navigator.geolocation.getCurrentPosition((position) =>{
@@ -127,6 +150,20 @@ class AddExit extends Component {
             onChange={this.handleChange}
           />
           <br/>
+          <label>Image</label>
+          <input
+            name="image"
+            type="file"
+            onChange={this.handleFileUpload}
+          ></input>
+          <span>
+            <img
+              style={{ width: "100px" }}
+              src={this.state.img && this.state.img}
+              alt=""
+            ></img>
+          </span>
+          <br />
           <label>Aproach latitude:</label>
           <br/>
           <input

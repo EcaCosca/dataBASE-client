@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ExitDetail from "./pages/ExitDetail";
+import EditExit from "./pages/EditExit";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
           <AnonRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/home" component={Home} />
           <PrivateRoute exact path="/exitpoint/:id" component={ExitDetail} />
+          <PrivateRoute exact path="/editexit/:id" component={EditExit} />
         </Switch>
       </div>
     );

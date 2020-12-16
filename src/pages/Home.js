@@ -43,7 +43,7 @@ export class Home extends Component {
                     <CardMedia
                       component="img"
                       alt="object"
-                      height="140"
+                      height="240"
                       image={exit.img}
                       title="Exit image"
                     />

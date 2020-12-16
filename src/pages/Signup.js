@@ -1,6 +1,10 @@
+import { Checkbox } from "@material-ui/core";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from './../context/auth-context';
+// import Checkbox from '@material-ui/core/Checkbox'
+// import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Textfield from '@material-ui/core/Textfield'
 
 class Signup extends Component {
   state = { username: "", password: "" };
@@ -23,6 +27,7 @@ class Signup extends Component {
 
   render() {
     const { username, password } = this.state;
+    // const [checked, setChecked] = React.useState(true)
     return (
       <div>
         <h1>Sign Up</h1>
@@ -34,6 +39,17 @@ class Signup extends Component {
 
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={this.handleChange} />
+
+          {/* <FormControlLabel
+            control={<Checkbox
+              checked={checked}
+              onChange={(e) => setChecked(e.target.checked)}
+              inputProps={{
+                'aria-label': 'secondary checkbox'
+              }}
+            />}
+            label="Testing Checkbox"
+          /> */}
 
           <input type="submit" value="Signup" />
         </form>
