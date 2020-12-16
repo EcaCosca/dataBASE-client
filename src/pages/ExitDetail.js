@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import {Link} from "react-router-dom";
 import { withAuth } from "../context/auth-context";
 import axios from "axios";
+import mapboxgl from "mapbox-gl";
+mapboxgl.accessToken = "pk.eyJ1IjoiZWNhY29zY2FyZWxsaSIsImEiOiJja2lydnpjZ3AwOHRhMndtbXJrYWZreHdnIn0.witvEX0TRMppWNjFFWvGxA"
+
 
 class ExitDetail extends Component {
   state = {
@@ -20,11 +23,22 @@ class ExitDetail extends Component {
     altitude: 0,
     // jumpCount: 0,
     // jumpThisExitCount: 0,
+    lng: 2.0787281,// mapbox element starting location marker
+    lat: 41.3948976,// mapbox element starting location marker
+    zoom: 15,// mapbox element starting location marker
     isReady: false,
   };
   
   componentDidMount() {
     this.getSingleExit();
+    this.map = new mapboxgl.Map({
+      container: this.mapContainer,
+      style: "mapbox://styles/mapbox/satellite-v9",
+      center: [this.state.lng, this.state.lat], // at the monet we use hardcoded location coordinates
+      zoom: this.state.zoom,
+    });
+
+
   }
   
   deleteSingleExit = () => {
@@ -78,6 +92,7 @@ class ExitDetail extends Component {
       });
     });
   };
+
   // handleClick = () => {
   // UPDATE JUMP COUNT
   //   const updatedCount = this.state.jumpCount + 1;
@@ -129,7 +144,11 @@ class ExitDetail extends Component {
           }
     
         </div>
-      {/* MAPPING SECTION */}
+      {/* MAPPING SECTION
+      <ReactMapGL {...viewport} mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}>
+        markers here
+      </ReactMapGL> */}
+        <div className="mapContainer" ref={(el) => (this.mapContainer = el)} className="mapContainer" />
         <div>
           <h4>aproach Laitude {aproachLat}</h4>
           <br/>

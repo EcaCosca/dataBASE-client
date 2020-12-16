@@ -54,6 +54,7 @@ nav.navbar {
   bottom: 0;
   width: 100%;
   z-index: 1;
+  display: flex
 }
 
 button.navbar-button {
@@ -74,4 +75,10 @@ input {
 
 textarea {
   width: 500;
+}
+
+.mapContainer {
+  width: 650px;
+ height: 450px;
+
 }
