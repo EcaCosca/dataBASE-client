@@ -30,7 +30,6 @@ class EditExit extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    console.log('event.target', event.target.value)
     this.setState({ [name]: value });
   };
   handleFormSubmit = (event) => {
@@ -147,10 +146,10 @@ getSingleExit = () => {
       landingZoneDescription,
       altitude,
     } = this.state;
-    console.log('this.state', this.state)
+
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit} classaName="editExitForm">
           <label>Name the exit:</label>
           <br/>
           <input
@@ -177,6 +176,8 @@ getSingleExit = () => {
             value={aproachLong}
             onChange={this.handleChange}
           />
+          <br/>
+        <Button onClick={this.setAproachLocation} startIcon={<GpsFixedIcon/>} variant="outlined" color="primary" size="small" >Aproach GPS</Button>
           <br/>
           <label>Aproach description:</label>
           <br/>
@@ -205,6 +206,8 @@ getSingleExit = () => {
             onChange={this.handleChange}
           />
           <br/>
+          <Button onClick={this.setExitLocation} startIcon={<GpsFixedIcon/>} variant="outlined" color="primary" size="small" >Exit GPS</Button>
+          <br/>
           <label>Exit description:</label>
           <br/>
           <textarea
@@ -232,6 +235,8 @@ getSingleExit = () => {
             onChange={this.handleChange}
           />
           <br/>
+            <Button onClick={this.setLandingZoneLocation} startIcon={<GpsFixedIcon/>} variant="outlined" color="primary" size="small" >Landing Zone GPS</Button>
+          <br/>
           <label>Landing zone description:</label>
           <br/>
           <textarea
@@ -251,15 +256,9 @@ getSingleExit = () => {
           />
           <br/>
           <div>
-            <Button type="submit" startIcon={<SaveIcon/>} variant="contained" color="primary" size="" >Aproach GPS</Button>
+            <Button type="submit" startIcon={<SaveIcon/>} variant="contained" color="primary" size="" >Save</Button>
           </div>
         </form>
-        <Button onClick={this.setAproachLocation} startIcon={<GpsFixedIcon/>} variant="outlined" color="primary" size="small" >Aproach GPS</Button>
-          <br/>
-        <Button onClick={this.setExitLocation} startIcon={<GpsFixedIcon/>} variant="outlined" color="primary" size="small" >Exit GPS</Button>
-          <br/>
-        <Button onClick={this.setLandingZoneLocation} startIcon={<GpsFixedIcon/>} variant="outlined" color="primary" size="small" >Landing Zone GPS</Button>
-          <br/>
       </div>
     );
   }

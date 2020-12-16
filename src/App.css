@@ -1,16 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 html, body {
-  margin: 0;
-  padding: 0;
+  margin: 3;
+  padding: 3;
+  text-align: center;
+  background: #0013814b;
+  background: radial-gradient(#ffffff77, #0067bb5d);
+  
+  
+}
+
+/* H1, H2, H3, H4, H5 */
+
+h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  margin-left: 25px;
+}
+h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+}
+h3 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+p {
+
 }
 
 .App {
   padding: 20px;;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
 }
+
+/* NAV BAR */
 
 nav.navbar { 
   display: flex;
   padding: 0px 20px;
-  background: #686de0; 
+  background: #ffffff;
+  /* background: -webkit-linear-gradient(#707081, #293f50); */
+  /* background:    -moz-linear-gradient(#646988, #293f50); */
+  background:         linear-gradient(#ffffff00, #0067bb93);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 button.navbar-button {
@@ -23,4 +66,12 @@ button.navbar-button {
 #home-btn {
   color: white;
   text-decoration: none;
+}
+
+input.editExitForm {
+  width: 300px;
+}
+
+textarea {
+  width: 500;
 }

@@ -55,7 +55,7 @@ class AddExit extends Component {
         altitude,
       }, {withCredentials: true})
       .then(() => {
-        this.props.getAllExits(); // leave this comment - we will used it later
+        this.props.getAllExits(); 
         this.setState({
           name: "",
           img: "",
@@ -75,12 +75,9 @@ class AddExit extends Component {
       .catch((err) => console.error(err));
   };
   handleFileUpload = (e) => {
-    console.log("The file to be uploaded is: ", e.target.files);
     const file = e.target.files[0];
 
     const uploadData = new FormData();
-    // image => this name has to be the same as in the model since we pass
-    // req.body to .create() method when creating a new project in '/api/projects' POST route
     uploadData.append("img", file);
 
     axios
@@ -88,8 +85,6 @@ class AddExit extends Component {
         withCredentials: true,
       })
       .then((response) => {
-        console.log("response is: ", response);
-        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         this.setState({ img: response.data.secure_url });
       })
       .catch((err) => {
@@ -98,8 +93,6 @@ class AddExit extends Component {
   };
   setAproachLocation = () => {
     navigator.geolocation.getCurrentPosition((position) =>{
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
         const long = position.coords.longitude;
         const lat = position.coords.latitude;
         this.setState({aproachLat: lat, aproachLong: long})
@@ -107,8 +100,6 @@ class AddExit extends Component {
 }
   setExitLocation = () => {
     navigator.geolocation.getCurrentPosition((position) =>{
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
         const long = position.coords.longitude;
         const lat = position.coords.latitude;
         this.setState({exitLat: lat, exitLong: long})
@@ -116,8 +107,6 @@ class AddExit extends Component {
 }
   setLandingZoneLocation = () => {
     navigator.geolocation.getCurrentPosition((position) =>{
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
         const long = position.coords.longitude;
         const lat = position.coords.latitude;
         this.setState({landingZoneLat: lat, landingZoneLong: long})
