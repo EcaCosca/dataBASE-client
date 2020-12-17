@@ -35,10 +35,10 @@ class Signup extends Component {
         <form onSubmit={this.handleFormSubmit}>
 
           <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange} />
+          <input className="inputAuthForms" type="text" name="username" value={username} onChange={this.handleChange} />
 
           <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
+          <input className="inputAuthForms" type="password" name="password" value={password} onChange={this.handleChange} />
 
           {/* <FormControlLabel
             control={<Checkbox
