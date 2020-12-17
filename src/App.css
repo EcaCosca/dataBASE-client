@@ -77,8 +77,15 @@ textarea {
   width: 500;
 }
 
+
+
+.allMapsContainer {
+  padding: 2px;
+  align-content: center;
+}
+
 .mapContainer {
   width: 650px;
- height: 450px;
-
+  height: 450px;
+  align-content: center;
 }

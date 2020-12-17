@@ -33,7 +33,7 @@ class ExitDetail extends Component {
     this.getSingleExit();
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: "mapbox://styles/mapbox/satellite-v9",
+      style: "mapbox://styles/ecacoscarelli/ckis2zjq40kbp19qmjow3k5he",
       center: [this.state.lng, this.state.lat], // at the monet we use hardcoded location coordinates
       zoom: this.state.zoom,
     });
@@ -119,73 +119,77 @@ class ExitDetail extends Component {
     const id = this.props.match.params.id;
     return (
       <div>
-        {/* <h2>Jumps Counter: {jumpCount}</h2>
-        <h2>Jumps from this exit: {jumpThisExitCount}</h2>
-        <button onClick={this.handleClick}> 1+</button> */}
-        {/* <h4>EXIT LAT AND LONG</h4> */}
-        {/* EXIT IMAGE */}
+        <div className="headerContainer">
+          <br />
+          <h1>{name}</h1>
+          <br />
+          {/* JUMP COUNTER SECTION */}
+          {/* <h2>Jumps Counter: {jumpCount}</h2>
+          <h2>Jumps from this exit: {jumpThisExitCount}</h2>
+          <button onClick={this.handleClick}> 1+</button> */}
+          <br />
+          <h3>ALTITUDE: {altitude}</h3>
           <br/>
-        <h1>{name}</h1>
+          {/* EXIT IMAGE */}
+          <img src={img ? img : null} />
           <br/>
-        <h3>{altitude}</h3>
+          {/* LINKS TO EDIT AND DELETE */}
+          <Link to={`/editexit/${id}`} >Edit Exit</Link>
           <br/>
-        <img src={img ? img : null} />
-          <br/>
-        {/* <a href="">Edit Exit</a> */}
-          <br/>
-            <Link to={`/editexit/${id}`} >Edit Exit</Link>
-            <Link to="#" onClick={this.deleteSingleExit}>Delete Exit</Link>
-          <br/>
-      {/* WEATHER SECTION */}
-        <div>
-          {this.state.isReady && this.state.isReady
-            ? (<iframe width="650" height="450" src={`https://embed.windy.com/embed2.html?lat=${exitLat.toFixed(3)}lon=${exitLong.toFixed(3)}&detailLat=${exitLat.toFixed(3)}&detailLon=${exitLong.toFixed(3)}&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1`} frameborder="0"></iframe>)
-            :"Loading"
-          }
-    
-        </div>
-      {/* MAPPING SECTION
-      <ReactMapGL {...viewport} mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}>
-        markers here
-      </ReactMapGL> */}
-        <div className="mapContainer" ref={(el) => (this.mapContainer = el)} className="mapContainer" />
-        <div>
-          <h4>aproach Laitude {aproachLat}</h4>
-          <br/>
-          <h4>aproach Longitude {aproachLong}</h4>
-          <br/>
-          <h4>aproach description</h4>
-          <br/>
-          <p>
-            {aproachDescription}
-          </p>
+          <Link to="#" onClick={this.deleteSingleExit}>Delete Exit</Link>
           <br/>
         </div>
-        <div>
-          <h4>Exit Laitude {exitLat}</h4>
-          <br/>
-          <h4>Exit Longitude {exitLong}</h4>
-          <br/>
-          <h4>Exit description</h4>
-          <br/>
-          <p>
-            {exitDescription}
-          </p>
-          <br/>
+        {/* MAPS SECTION */}
+        <div className="allMapsContainer">
+          {/* WEATHER SECTION */}
+          <div>
+          <h2>Weather Map</h2>
+            {this.state.isReady && this.state.isReady
+              ? (<iframe width="650" height="450" src={`https://embed.windy.com/embed2.html?lat=${exitLat.toFixed(3)}lon=${exitLong.toFixed(3)}&detailLat=${exitLat.toFixed(3)}&detailLon=${exitLong.toFixed(3)}&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1`} frameborder="0"></iframe>)
+              :"Loading"
+            }
+          </div>
+          {/* HYPSOMETRIC SECTION */}
+          <div>
+            <h2>Hypsometric Map</h2>
+            <div ref={(el) => (this.mapContainer = el)} className="mapContainer" />
+          </div>
+            <br/>
         </div>
-        <div>
-          <h4>Landing Zone Laitude {landingZoneLat}</h4>
-          <br/>
-          <h4>Landing Zone Longitude {landingZoneLong}</h4>
-          <br/>
-          <h4>Landing Zone description</h4>
-          <br/>
-          <p>
-            {landingZoneDescription}
-          </p>
-          <br/>
+        <br/>
+        {/* DESCRIPTION SECTION */}
+        <div className="descriptionContainer">
+          {/* APROACH INFORMATION */}
+          <div className="aproachContainer">
+            <h2>APROACH INFORMATION</h2>
+            <h3>Aproach Laitude: {aproachLat}</h3>
+            <h3>Aproach Longitude: {aproachLong}</h3>
+            <h3>Aproach Description:</h3>
+            <p>
+              {aproachDescription}
+            </p>
+          </div>
+          {/* EXIT INFORMATION */}
+          <div className="exitContainer">
+            <h2>EXIT INFORMATION</h2>
+            <h3>Exit Laitude {exitLat}</h3>
+            <h3>Exit Longitude {exitLong}</h3>
+            <h3>Exit description</h3>
+            <p>
+              {exitDescription}
+            </p>
+          </div>
+          {/* LANDING ZONE INFORMATION */}
+          <div className="landingZoneContainer">
+            <h3>LANDING ZONE INFORMATION</h3>
+            <h3>Landing Zone Laitude {landingZoneLat}</h3>
+            <h3>Landing Zone Longitude {landingZoneLong}</h3>
+            <h3>Landing Zone description</h3>
+            <p>
+              {landingZoneDescription}
+            </p>
+          </div>
         </div>
-        
       </div>
     );
   }
