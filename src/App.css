@@ -34,7 +34,7 @@ h3 {
 
 
 p {
-
+  margin: 2px;
 }
 
 .App {
@@ -157,4 +157,15 @@ textarea {
 
 .inputAuthForms:focus {
   outline: 0;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.descriptionContainerDiv {
+  width: 33%
 }

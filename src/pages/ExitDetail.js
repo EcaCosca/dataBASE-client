@@ -44,19 +44,17 @@ class ExitDetail extends Component {
     const exitCoordinatesArray = [this.state.exitLong, this.state.exitLat]
     const aproachCoordinatesArray = [this.state.aproachLong, this.state.aproachLat]
     const landingCoordinatesArray = [this.state.landingZoneLong, this.state.landingZoneLat]
-    console.log('createcreatecreateFS', this.state)
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/ecacoscarelli/ckis2zjq40kbp19qmjow3k5he",
       center: [this.state.exitLong, this.state.exitLat], // I need to pass the information from this.state.exitLat & this.state.exitLong location coordinates
-      zoom: 8
+      zoom: 11
     });
     const exitMarker = new mapboxgl.Marker()
     .setLngLat(exitCoordinatesArray)
     .setPopup(new mapboxgl.Popup().setHTML(`
     <div class="details-card">
-      <p>Name: TEST</p>
-      <p>State: TEST</p>
+      <h1>
     </div>
     `) )
     .addTo(this.map)
@@ -66,12 +64,6 @@ class ExitDetail extends Component {
     const landingMarker = new mapboxgl.Marker()
     .setLngLat(landingCoordinatesArray)
     .addTo(this.map)
-
-  
-    // marker
-    //   .setLngLat(exitCoordinatesArray)
-    //   .addTo(this.map);
-  
     // if (navigator.geolocation) {
     //   navigator.geolocation.getCurrentPosition(
     //     (position) => {
@@ -138,12 +130,9 @@ class ExitDetail extends Component {
         listOfExits: response.data,
         isReady: true,
       })
-      console.log('THISSTATETHISTATESSFS', this.state)
       this.createMap()
     });
   };
-
- 
 
   // handleClick = () => {
   // UPDATE JUMP COUNT
@@ -212,7 +201,7 @@ class ExitDetail extends Component {
         {/* DESCRIPTION SECTION */}
         <div className="descriptionContainer">
           {/* APROACH INFORMATION */}
-          <div className="aproachContainer">
+          <div className="aproachContainer descriptionContainerDiv">
             <h2>APROACH INFORMATION</h2>
             <h3>Aproach Latitude: {aproachLat}</h3>
             <h3>Aproach Longitude: {aproachLong}</h3>
@@ -222,7 +211,7 @@ class ExitDetail extends Component {
             </p>
           </div>
           {/* EXIT INFORMATION */}
-          <div className="exitContainer">
+          <div className="exitContainer descriptionContainerDiv">
             <h2>EXIT INFORMATION</h2>
             <h3>Exit Latitude {exitLat}</h3>
             <h3>Exit Longitude {exitLong}</h3>
@@ -232,8 +221,8 @@ class ExitDetail extends Component {
             </p>
           </div>
           {/* LANDING ZONE INFORMATION */}
-          <div className="landingZoneContainer">
-            <h3>LANDING ZONE INFORMATION</h3>
+          <div className="landingZoneContainer descriptionContainerDiv">
+            <h2>LANDING ZONE INFORMATION</h2>
             <h3>Landing Zone Latitude {landingZoneLat}</h3>
             <h3>Landing Zone Longitude {landingZoneLong}</h3>
             <h3>Landing Zone description</h3>
