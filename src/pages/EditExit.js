@@ -153,7 +153,7 @@ getSingleExit = () => {
       <Container>
         <div>
           <form onSubmit={this.handleFormSubmit} classaName="editExitForm">
-            <h1>EDIT EXIT</h1>
+            <h1>Edit Exit</h1>
             <label>Name the exit:</label>
             <br/>
             <input

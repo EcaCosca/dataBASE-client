@@ -162,14 +162,16 @@ class ExitDetail extends Component {
       <div>
         <div className="headerContainer">
           <br />
-          <h1>{name}</h1>
+          <h1>NAME</h1>
+          <h2>{name}</h2>
           <br />
           {/* JUMP COUNTER SECTION */}
           {/* <h2>Jumps Counter: {jumpCount}</h2>
           <h2>Jumps from this exit: {jumpThisExitCount}</h2>
           <button onClick={this.handleClick}> 1+</button> */}
           <br />
-          <h3>ALTITUDE: {altitude} meters</h3>
+          <h2>ALTITUDE</h2>
+          <h3>{altitude} meters</h3>
           <br/>
           {/* EXIT IMAGE */}
           <img src={img ? img : null} />

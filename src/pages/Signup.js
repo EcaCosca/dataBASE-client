@@ -5,6 +5,7 @@ import { withAuth } from './../context/auth-context';
 // import Checkbox from '@material-ui/core/Checkbox'
 // import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Textfield from '@material-ui/core/Textfield'
+import companyLogo from '../images/logoTransparente.png';
 
 class Signup extends Component {
   state = { username: "", password: "" };
@@ -30,15 +31,16 @@ class Signup extends Component {
     // const [checked, setChecked] = React.useState(true)
     return (
       <div>
-        <h1>Sign Up</h1>
+        <img src={companyLogo} alt="dataBASE logo" width="200" height="200"></img>
+        
+        <h2>Sign Up</h2>
 
         <form onSubmit={this.handleFormSubmit}>
 
-          <label>Username:</label>
-          <input className="inputAuthForms" type="text" name="username" value={username} onChange={this.handleChange} />
-
-          <label>Password:</label>
-          <input className="inputAuthForms" type="password" name="password" value={password} onChange={this.handleChange} />
+          <input className="inputAuthForms inputFormsSignUp" type="text" name="username" placeholder="USER" value={username} onChange={this.handleChange} />
+          <br></br>
+          <input className="inputAuthForms inputFormsSignUp" type="password" name="password" placeholder="PASSWORD" value={password} onChange={this.handleChange} />
+          <br></br>
 
           {/* <FormControlLabel
             control={<Checkbox
@@ -51,10 +53,12 @@ class Signup extends Component {
             label="Testing Checkbox"
           /> */}
 
-          <input type="submit" value="Signup" />
+          <input className="inputButton" type="submit" value="Signup" />
         </form>
         
-        <p>Already have account?</p>
+        <br></br>
+        <p className="a">Already have account?</p>
+        <br></br>
         <Link to={"/login"}> Login</Link>
       </div>
     );

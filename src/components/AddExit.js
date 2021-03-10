@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withAuth } from "./../context/auth-context";
+import Button from '@material-ui/core/Button'
+import GpsFixedIcon from '@material-ui/icons/GpsFixed';
+import SaveIcon from '@material-ui/icons/Save';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+
 class AddExit extends Component {
   state = {
     name: "",
@@ -133,18 +139,22 @@ class AddExit extends Component {
           <label>Name the exit:</label>
           <br/>
           <input
+            className="inputAuthForms"
             type="text"
             name="name"
             value={name}
             onChange={this.handleChange}
           />
           <br/>
-          <label>Image</label>
+          <label>Image:</label>
+          <br/>
           <input
             name="image"
+            className="choseImg"
             type="file"
             onChange={this.handleFileUpload}
           ></input>
+          <br/>
           <span>
             <img
               style={{ width: "100px" }}
@@ -157,6 +167,7 @@ class AddExit extends Component {
           <br/>
           <input
             name="aproachLat"
+            className="inputAuthForms"
             type="number"
             value={aproachLat}
             onChange={this.handleChange}
@@ -166,14 +177,18 @@ class AddExit extends Component {
           <br/>
           <input
             name="aproachLong"
+            className="inputAuthForms"
             type="number"
             value={aproachLong}
             onChange={this.handleChange}
           />
           <br/>
+          <Button onClick={this.setAproachLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" >Aproach GeoLocation</Button>
+          <br/>
           <label>Aproach description:</label>
           <br/>
           <textarea
+            className="textForms"
             name="aproachDescription"
             type="text"
             value={aproachDescription}
@@ -184,6 +199,7 @@ class AddExit extends Component {
           <br/>
           <input
             name="exitLat"
+            className="inputAuthForms"
             type="number"
             value={exitLat}
             onChange={this.handleChange}
@@ -193,14 +209,18 @@ class AddExit extends Component {
           <br/>
           <input
             name="exitLong"
+            className="inputAuthForms"
             type="number"
             value={exitLong}
             onChange={this.handleChange}
           />
           <br/>
+          <Button onClick={this.setExitLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" >Exit GeoLocation</Button>
+          <br/>
           <label>Exit description:</label>
           <br/>
           <textarea
+            className="textForms"
             name="exitDescription"
             type="text"
             value={exitDescription}
@@ -211,6 +231,7 @@ class AddExit extends Component {
           <br/>
           <input
             name="landingZoneLat"
+            className="inputAuthForms"
             type="number"
             value={landingZoneLat}
             onChange={this.handleChange}
@@ -220,14 +241,18 @@ class AddExit extends Component {
           <br/>
           <input
             name="landingZoneLong"
+            className="inputAuthForms"
             type="number"
             value={landingZoneLong}
             onChange={this.handleChange}
           />
           <br/>
+          <Button onClick={this.setLandingZoneLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" >Landing Zone GeoLocation</Button>
+          <br/>
           <label>Landing zone description:</label>
           <br/>
           <textarea
+            className="textForms"
             name="landingZoneDescription"
             type="text"
             value={landingZoneDescription}
@@ -238,18 +263,17 @@ class AddExit extends Component {
           <br/>
           <input
             name="altitude"
+            className="inputAuthForms"
             type="number"
             value={altitude}
             onChange={this.handleChange}
           />
           <br/>
           <div>
-            <button type="submit">Create</button>
+            <Button type="submit" startIcon={<SaveIcon/>} variant="contained" color="primary" size="">Create</Button>
           </div>
+          <br/>
         </form>
-        <button onClick={this.setAproachLocation} >Aproach GeoLocation</button>
-        <button onClick={this.setExitLocation} >Exit GeoLocation</button>
-        <button onClick={this.setLandingZoneLocation} >Landing Zone GeoLocation</button>
       </div>
     );
   }
