@@ -23,32 +23,40 @@ class Login extends Component {
 
     return (
       <div className="loginDiv">
-        <br></br>
+        {/* <br></br>
         <img src={companyLogo} alt="dataBASE logo" width="200" height="200"></img>
-        <br></br>
-        <h2>Log in</h2>
-        <br></br>
+        <br></br> */}
+
+        <div className="title-container">
+          <h1 className="welcomeTo-title">Welcome to,</h1>
+          <h1 className="database-title">dataBASE</h1>
+          <br></br>
+        </div>
 
         <form onSubmit={this.handleFormSubmit}>
           
-          <label>Username:</label>
-          <br></br>
-          <br></br>
-          <input className="inputAuthForms" type="text" name="username" value={username} onChange={this.handleChange}/>
-          <br></br>
-          <br></br>
-          <br></br>
-
-          <label>Password:</label>
-          <br></br>
-          <br></br>
-          <input className="inputAuthForms" type="password" name="password" value={password} onChange={this.handleChange} />
-          <br></br>
-          <br></br>
+          <div className="form__group field">
+            <input type="text" className="form__field" name="username" value={username} onChange={this.handleChange}/>
+            <label className="form__label">
+              Username
+            </label>
+          </div>
           <br></br>
 
-          <input className="inputButton" type="submit" value="Login" />
+          <div className="form__group field">
+            <input className="form__field" type="password" name="password" value={password} onChange={this.handleChange} />
+            <label className="form__label">Password</label>
+          </div>
+          <br></br>
+
+          <input className="inputButton" type="submit" value="Log in" />
         </form>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
     );
   }

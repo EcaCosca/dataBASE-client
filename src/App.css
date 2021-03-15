@@ -1,63 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+/* GLOBAL */
+
 html, body {
-  margin: 3;
-  padding: 3;
   text-align: center;
-  background: #0013814b;
-  background-image: linear-gradient(
-        to right bottom,
-         #8487c5ca, #0067bbab),
-         url(/src/images/backgroundtest2.png);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-  font-family: "montserrat",sans-serif;
-  background-size: cover;
-  background-position: top;
-  height: 95vh;
-  position: relative;
+  background:rgb(42, 127, 148);
+  /* background: linear-gradient(rgb(42, 127, 148),rgba(60, 99, 241, 0.567)); */
+  font-family: "roboto", sans-serif;
+  color:rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* H1, H2, H3, H4, H5 */
 
 h1 {
-  font-style: normal;
-  font-weight: 900;
-  font-size: 36px;
-  letter-spacing: 30px;
-  margin-left: 25px;
-  color: #293f50;
+  
 }
 h2 {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  margin: 2px;
-  letter-spacing: 2px;
+  
 }
 h3 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  letter-spacing: 2px;
-  line-height: 24px;
+ 
 }
 
 label {
-  color: #26245a;
-  font-size: 15px;
-  font-family: "montserrat",sans-serif;
-  font-weight: 500;
-  display: block;
-  width: 150px;
-  padding: 3px;
-  letter-spacing: 2px;
+
 }
 
 
 p {
-  margin: 5px;
+
 }
 
 .App {
@@ -73,9 +48,7 @@ nav.navbar {
   display: flex;
   padding: 0px 15px;
   background: #ffffff;
-  /* background: -webkit-linear-gradient(#707081, #293f50); */
-  /* background:    -moz-linear-gradient(#646988, #293f50); */
-  background:         linear-gradient(#ffffff00, #0067bb93);
+  background: linear-gradient(#ffffff00, #0067bb93);
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -103,27 +76,102 @@ textarea {
   width: 500;
 }
 
+/* LOGIN */
 
-
-.allMapsContainer {
-  /* padding: 2px;
-  align-content: center; */
+/* TITLE "Welcome to dataBASE" */
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.mapContainer {
-  width: 650px;
-  height: 450px;
-  /* align-content: center; */
+.welcomeTo-title {
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 31px;
+  line-height: 11px;
+  text-align: left;
+  color: #fff;
 }
 
-.inputAuthForms {
+.database-title {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 38px;
+  line-height: 13px;
+  text-align: left;
+  color: #fff;
+}
+
+/* INPUTS BUTTONS AND LABELS */
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  outline: 0;
+  /* font-size: 1.3rem; */
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #11998e,#38ef7d);
+  border-image-slice: 1;
+} */
+/* reset input */
+.form__field {
+  &:required,&:invalid { box-shadow:none; }
+}
+
+/* .inputAuthForms {
   display: block;
   font-size: 18px;
   font-family: "montserrat",sans-serif;
   font-weight: 300;
-  color: #333;
-  /* line-height: 1.3; */
-  /* padding: 0.6em 1.4em 0.5em 0.8em; */
+  color: rgb(255, 255, 255);
   width: 50vw;
   box-sizing: border-box;
   margin: 0;
@@ -135,31 +183,29 @@ textarea {
   padding: 21px;
   padding-left: 32px;
   text-align: center;
-}
+} */
 
 .inputButton {
-   /* styles */
+   width: 300px;
+   height: 50px;
+   background: transparent;
    position: relative;
-   padding: 1rem 1rem;
-   border-radius: 6px;
-   font-size: 1.3rem;
-   border: none;
-   font-family: "montserrat",sans-serif;
+   border-radius: 21em;
+   border-width: 3px;
+   border-color: rgb(255, 255, 255);
    text-transform: uppercase;
-   cursor: pointer;
-   color: #f8f8f8;
-   background-size: 200%;
-   background-color: #3428d78b;
+   font-weight: bold;
+   font-size: 16px;
+   color:rgb(255, 255, 255);
+   box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.4);
 }
 
-
-.a {
-  display: table;
-  margin: 25px auto;
-  text-decoration: none;
-  color: lighten(rgb(187, 184, 184), 10%);
-  font-family: "Source Code Pro";
-  transition: .3s;
+.inputButton:hover{
+	box-shadow: 0px 15px 20px rgba(0,0,0,.4);
+	background:linear-gradient(65deg, rgb(117, 202, 224),rgb(47, 136, 158));
+	color: #fff;
+	transform: translateY(-5px);
+	transition: 0.4s;
 }
 
 .textForms {
@@ -169,8 +215,6 @@ textarea {
   font-family: sans-serif;
   font-weight: 300;
   color: #333;
-  /* line-height: 1.3; */
-  /* padding: 0.6em 1.4em 0.5em 0.8em; */
   width: 50vw;
   height: 50vw;
   box-sizing: border-box;
@@ -210,16 +254,54 @@ textarea {
   
   justify-content: center;
 }
+
+.loginDiv {
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+/* EXIT DETAIL */
+
+.circular-landscape {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+}
+
+.allMapsContainer {
+  background:         linear-gradient(#d21f527d, #0a2e90a4);
+  border-radius: 2em;
+}
+
+.mapContainer {
+  width: 650px;
+  height: 450px;
+}
+
 .descriptionContainer {
   display: flex;
-  flex-direction: row;
   align-items: baseline;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .descriptionContainerDiv {
   flex-basis: 33%;
   align-content: space-around;
+  margin: 10px 5px;
+  border: 2px solid rgba(212, 208, 208, 0.348);
+  border-radius: 0.5em;
+  min-height: 400px;
 }
 
 .allMapsContainer {
@@ -234,10 +316,19 @@ textarea {
 flex-basis: 50%;
 }
 
-.loginDiv {
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
+.aproachContainer {
+  background: rgb(2,0,36);
+  background: linear-gradient(56deg, rgba(2,0,36,0.5172443977591037) 0%, rgba(83,9,121,0.4640231092436975) 35%, rgba(0,67,255,0.5060399159663865) 100%);
+}
+
+.landingZoneContainer {
+  background: rgb(30,24,135);
+  background: linear-gradient(242deg, rgba(30,24,135,0.5172443977591037) 0%, rgba(131, 255, 148, 0.464) 35%, rgba(227, 5, 179, 0.478) 100%);
+}
+
+.exitContainer {
+  background: rgb(131,58,180);
+  background: linear-gradient(69deg, rgba(131,58,180,0.5452556022408963) 0%, rgba(253,29,29,0.5172443977591037) 50%, rgba(252,176,69,0.5648634453781513) 100%);
 }
 
 /* EDIT EXIT */

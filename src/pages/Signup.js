@@ -31,9 +31,9 @@ class Signup extends Component {
     // const [checked, setChecked] = React.useState(true)
     return (
       <div>
-        <img src={companyLogo} alt="dataBASE logo" width="200" height="200"></img>
+        {/* <img src={companyLogo} alt="dataBASE logo" width="200" height="200"></img> */}
         
-        <h2>Sign Up</h2>
+        <h1>Sign Up</h1>
 
         <form onSubmit={this.handleFormSubmit}>
 

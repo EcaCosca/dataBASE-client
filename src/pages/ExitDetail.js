@@ -173,9 +173,13 @@ class ExitDetail extends Component {
           <h2>ALTITUDE</h2>
           <h3>{altitude} meters</h3>
           <br/>
+
           {/* EXIT IMAGE */}
-          <img src={img ? img : null} />
+          <div  class="circular-landscape">
+            <img src={img ? img : null} />
+          </div>
           <br/>
+
           {/* LINKS TO EDIT AND DELETE */}
           <Link to={`/editexit/${id}`} ><EditIcon style={{ fontSize: 40 }} color="primary" /></Link>
         
@@ -205,9 +209,11 @@ class ExitDetail extends Component {
           {/* APROACH INFORMATION */}
           <div className="aproachContainer descriptionContainerDiv">
             <h2>APROACH INFORMATION</h2>
-            <h3>Aproach Latitude: {aproachLat}</h3>
-            <h3>Aproach Longitude: {aproachLong}</h3>
-            <h3>Aproach Description:</h3>
+            <h3>Latitude</h3> 
+            <h5>{aproachLat}</h5>
+            <h3>Longitude</h3>
+            <h5>{aproachLong}</h5>
+            <h3>Description</h3>
             <p>
               {aproachDescription}
             </p>
@@ -215,9 +221,11 @@ class ExitDetail extends Component {
           {/* EXIT INFORMATION */}
           <div className="exitContainer descriptionContainerDiv">
             <h2>EXIT INFORMATION</h2>
-            <h3>Exit Latitude {exitLat}</h3>
-            <h3>Exit Longitude {exitLong}</h3>
-            <h3>Exit description</h3>
+            <h3>Latitude</h3> 
+            <h5>{exitLat}</h5>
+            <h3>Longitude</h3>
+            <h5>{exitLong}</h5>
+            <h3>Description</h3>
             <p>
               {exitDescription}
             </p>
@@ -225,9 +233,11 @@ class ExitDetail extends Component {
           {/* LANDING ZONE INFORMATION */}
           <div className="landingZoneContainer descriptionContainerDiv">
             <h2>LANDING ZONE INFORMATION</h2>
-            <h3>Landing Zone Latitude {landingZoneLat}</h3>
-            <h3>Landing Zone Longitude {landingZoneLong}</h3>
-            <h3>Landing Zone description</h3>
+            <h3>Latitude</h3> 
+            <h5>{landingZoneLat}</h5>
+            <h3>Longitude</h3>
+            <h5>{landingZoneLong}</h5>
+            <h3>Description</h3>
             <p>
               {landingZoneDescription}
             </p>
