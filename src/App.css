@@ -104,6 +104,31 @@ textarea {
   color: #fff;
 }
 
+/* EXIT DETAIL */
+
+.exitDetailButton {
+  width: 150px;
+  height: 50px;
+  background: none;
+  position: relative;
+  border-radius: 21em;
+  border-width: 3px;
+  border-color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  color:rgb(255, 255, 255);
+  box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.4);
+}
+
+.exitDetailButton:hover{
+ box-shadow: 0px 15px 20px rgba(0,0,0,.4);
+ background:linear-gradient(65deg, rgb(117, 202, 224),rgb(47, 136, 158));
+ color: #fff;
+ transform: translateY(-5px);
+ transition: 0.4s;
+}
+
 /* INPUTS BUTTONS AND LABELS */
 
 .form__group {

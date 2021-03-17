@@ -162,28 +162,31 @@ class ExitDetail extends Component {
       <div>
         <div className="headerContainer">
           <br />
-          <h1>NAME</h1>
-          <h2>{name}</h2>
-          <br />
-          {/* JUMP COUNTER SECTION */}
-          {/* <h2>Jumps Counter: {jumpCount}</h2>
-          <h2>Jumps from this exit: {jumpThisExitCount}</h2>
-          <button onClick={this.handleClick}> 1+</button> */}
-          <br />
-          <h2>ALTITUDE</h2>
-          <h3>{altitude} meters</h3>
-          <br/>
 
           {/* EXIT IMAGE */}
           <div  class="circular-landscape">
             <img src={img ? img : null} />
           </div>
+          <h1>{name}</h1>
+          <h4>Heigth: {altitude} meters</h4>
+          <br/>
+          {/* JUMP COUNTER SECTION */}
+          {/* <h2>Jumps Counter: {jumpCount}</h2>
+          <h2>Jumps from this exit: {jumpThisExitCount}</h2>
+          <button onClick={this.handleClick}> 1+</button> */}
+          <br/>
           <br/>
 
           {/* LINKS TO EDIT AND DELETE */}
-          <Link to={`/editexit/${id}`} ><EditIcon style={{ fontSize: 40 }} color="primary" /></Link>
+          <div className="exitDetailButton" >
+            <Link to={`/editexit/${id}`} >
+              <EditIcon style={{ fontSize: 40 }} color="primary" />EDIT
+            </Link>
+          </div>
         
-          <Link to="#" onClick={this.deleteSingleExit}><DeleteForeverIcon style={{ fontSize: 40 }} color="primary" /></Link>
+          <Link className="exitDetailButton delete" to="#" onClick={this.deleteSingleExit}>
+            <DeleteForeverIcon style={{ fontSize: 40 }} color="primary" />DELETE
+          </Link>
           <br/>
         </div>
         {/* MAPS SECTION */}

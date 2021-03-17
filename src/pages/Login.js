@@ -28,7 +28,7 @@ class Login extends Component {
         <br></br> */}
 
         <div className="title-container">
-          <h1 className="welcomeTo-title">Welcome to,</h1>
+          <h1 className="welcomeTo-title">Welcome back to,</h1>
           <h1 className="database-title">dataBASE</h1>
           <br></br>
         </div>
