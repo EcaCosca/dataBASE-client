@@ -139,7 +139,7 @@ class AddExit extends Component {
           <label>Name the exit:</label>
           <br/>
           <input
-            className="inputAuthForms"
+            className="inputAuthForms form__field"
             type="text"
             name="name"
             value={name}
