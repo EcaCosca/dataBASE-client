@@ -68,6 +68,7 @@ export class Home extends Component {
                     </CardContent>
                   </CardActionArea>
                 </Card>
+                <br></br>
               </Link>
             </div>
           ))}
