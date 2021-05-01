@@ -164,6 +164,9 @@ class AddExit extends Component {
             ></img>
           </span>
           <br />
+
+          {/* APROACH */}
+          
           <div class="add-exit-div">            
             <div className="latitude-longitud-container">              
             <h3>APPROACH</h3>
@@ -199,11 +202,10 @@ class AddExit extends Component {
               <label>Description</label>
               <textarea
                 className="form__field"
-                name="form__field"
+                name="approachDescription form__field"
                 type="text"
                 value={aproachDescription}
                 onChange={this.handleChange}
-                // placeholder="Your description here"
                 />
                 <br/>
                 <br/>
@@ -211,38 +213,54 @@ class AddExit extends Component {
             </div>
           </div>
           <br/>
-          <label>Exit latitude:</label>
-          <br/>
-          <input
-            name="exitLat"
-            className="inputAuthForms form__field"
-            type="number"
-            value={exitLat}
-            onChange={this.handleChange}
-          />
-          <br/>
-          <label>Exit Longitude:</label>
-          <br/>
-          <input
-            name="exitLong"
-            className="inputAuthForms form__field"
-            type="number"
-            value={exitLong}
-            onChange={this.handleChange}
-          />
-          <br/>
-          <Button onClick={this.setExitLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" >Exit GeoLocation</Button>
-          <br/>
-          <label>Exit description:</label>
-          <br/>
-          <textarea
-            className="textForms"
-            name="exitDescription form__field"
-            type="text"
-            value={exitDescription}
-            onChange={this.handleChange}
-          />
-          <br/>
+
+          {/* EXIT */}
+
+          <div className="add-exit-div">
+            <div className="latitude-longitud-container">              
+              <h3>EXIT</h3>
+              <button className="inputButton gpsButton" onClick={this.setExitLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" ><AddLocationIcon /></button>
+            </div>
+            <div className="latitude-longitud-container">
+              <div className="latitude-container">
+                <label>Latitude</label>
+                <br/>
+                <input
+                  name="exitLat"
+                  className="inputAuthForms form__field"
+                  type="number"
+                  value={exitLat}
+                  onChange={this.handleChange}
+                />
+                <br/>
+              </div>
+              <div className="longitud-container">
+                <label>Longitude</label>
+                <br/>
+                <input
+                  name="exitLong"
+                  className="inputAuthForms form__field"
+                  type="number"
+                  value={exitLong}
+                  onChange={this.handleChange}
+                />
+                <br/>
+              </div>
+            </div>
+            <div className="description-container">
+              <label>Description</label>
+              <textarea
+                className="form__field"
+                name="exitDescription form__field"
+                type="text"
+                value={exitDescription}
+                onChange={this.handleChange}
+              />
+              <br/>
+              <br/>
+              <br/>
+            </div>
+          </div>
           <label>Landing zone latitude:</label>
           <br/>
           <input
