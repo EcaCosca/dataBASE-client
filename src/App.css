@@ -233,6 +233,11 @@ textarea {
 	transition: 0.4s;
 }
 
+.gpsButton {
+  border-radius: 100%;
+  width: 50px;
+}
+
 .textForms {
   align-content: center;
   display: block;
@@ -295,6 +300,25 @@ textarea {
 
 .latitude-longitud-container {
   display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 5px;
+  align-items: center;
+}
+
+.longitud-container,
+.latitude-container {
+  margin: 5px;
+  padding: 5px;
+  text-align: left;
+}
+
+.description-container {
+  margin: 0px 20px 0px;
+}
+
+.description-container label {
+  text-align: left;
 }
 
 /* EXIT DETAIL */

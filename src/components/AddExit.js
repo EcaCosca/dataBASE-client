@@ -6,6 +6,7 @@ import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 import SaveIcon from '@material-ui/icons/Save';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import AddLocationIcon from '@material-ui/icons/AddLocation';
 
 class AddExit extends Component {
   state = {
@@ -136,7 +137,7 @@ class AddExit extends Component {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Name the exit:</label>
+          <label>Name</label>
           <br/>
           <input
             className="inputAuthForms form__field"
@@ -165,11 +166,11 @@ class AddExit extends Component {
           <br />
           <div class="add-exit-div">            
             <div className="latitude-longitud-container">              
-            <h3>Approach</h3>
-            <Button onClick={this.setAproachLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" >Aproach GeoLocation</Button>
+            <h3>APPROACH</h3>
+            <button className="inputButton gpsButton" onClick={this.setAproachLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" ><AddLocationIcon /></button>
             </div>
             <div className="latitude-longitud-container">
-              <div>
+              <div className="latitude-container">
                 <label>Latitude</label>
                 <br/>
                 <input
@@ -181,7 +182,7 @@ class AddExit extends Component {
                   />
                 <br/>
               </div>
-              <div>
+              <div className="longitud-container">
                 <label>Longitude</label>
                 <br/>
                 <input
@@ -194,15 +195,20 @@ class AddExit extends Component {
                 <br/>
               </div>
             </div>
-            <label>Aproach description:</label>
-            <br/>
-            <textarea
-              className="textForms"
-              name="aproachDescription form__field"
-              type="text"
-              value={aproachDescription}
-              onChange={this.handleChange}
-              />
+            <div className="description-container">
+              <label>Description</label>
+              <textarea
+                className="form__field"
+                name="form__field"
+                type="text"
+                value={aproachDescription}
+                onChange={this.handleChange}
+                // placeholder="Your description here"
+                />
+                <br/>
+                <br/>
+                <br/>
+            </div>
           </div>
           <br/>
           <label>Exit latitude:</label>
