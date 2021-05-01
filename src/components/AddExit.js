@@ -163,43 +163,53 @@ class AddExit extends Component {
             ></img>
           </span>
           <br />
-          <label>Aproach latitude:</label>
-          <br/>
-          <input
-            name="aproachLat"
-            className="inputAuthForms"
-            type="number"
-            value={aproachLat}
-            onChange={this.handleChange}
-          />
-          <br/>
-          <label>Aproach longitude:</label>
-          <br/>
-          <input
-            name="aproachLong"
-            className="inputAuthForms"
-            type="number"
-            value={aproachLong}
-            onChange={this.handleChange}
-          />
-          <br/>
-          <Button onClick={this.setAproachLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" >Aproach GeoLocation</Button>
-          <br/>
-          <label>Aproach description:</label>
-          <br/>
-          <textarea
-            className="textForms"
-            name="aproachDescription"
-            type="text"
-            value={aproachDescription}
-            onChange={this.handleChange}
-          />
+          <div class="add-exit-div">            
+            <div className="latitude-longitud-container">              
+            <h3>Approach</h3>
+            <Button onClick={this.setAproachLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" >Aproach GeoLocation</Button>
+            </div>
+            <div className="latitude-longitud-container">
+              <div>
+                <label>Latitude</label>
+                <br/>
+                <input
+                  name="aproachLat"
+                  className="inputAuthForms form__field"
+                  type="number"
+                  value={aproachLat}
+                  onChange={this.handleChange}
+                  />
+                <br/>
+              </div>
+              <div>
+                <label>Longitude</label>
+                <br/>
+                <input
+                  name="aproachLong"
+                  className="inputAuthForms form__field"
+                  type="number"
+                  value={aproachLong}
+                  onChange={this.handleChange}
+                  />
+                <br/>
+              </div>
+            </div>
+            <label>Aproach description:</label>
+            <br/>
+            <textarea
+              className="textForms"
+              name="aproachDescription form__field"
+              type="text"
+              value={aproachDescription}
+              onChange={this.handleChange}
+              />
+          </div>
           <br/>
           <label>Exit latitude:</label>
           <br/>
           <input
             name="exitLat"
-            className="inputAuthForms"
+            className="inputAuthForms form__field"
             type="number"
             value={exitLat}
             onChange={this.handleChange}
@@ -209,7 +219,7 @@ class AddExit extends Component {
           <br/>
           <input
             name="exitLong"
-            className="inputAuthForms"
+            className="inputAuthForms form__field"
             type="number"
             value={exitLong}
             onChange={this.handleChange}
@@ -221,7 +231,7 @@ class AddExit extends Component {
           <br/>
           <textarea
             className="textForms"
-            name="exitDescription"
+            name="exitDescription form__field"
             type="text"
             value={exitDescription}
             onChange={this.handleChange}
@@ -231,7 +241,7 @@ class AddExit extends Component {
           <br/>
           <input
             name="landingZoneLat"
-            className="inputAuthForms"
+            className="inputAuthForms form__field"
             type="number"
             value={landingZoneLat}
             onChange={this.handleChange}
@@ -241,7 +251,7 @@ class AddExit extends Component {
           <br/>
           <input
             name="landingZoneLong"
-            className="inputAuthForms"
+            className="inputAuthForms form__field"
             type="number"
             value={landingZoneLong}
             onChange={this.handleChange}
@@ -253,7 +263,7 @@ class AddExit extends Component {
           <br/>
           <textarea
             className="textForms"
-            name="landingZoneDescription"
+            name="landingZoneDescription form__field"
             type="text"
             value={landingZoneDescription}
             onChange={this.handleChange}
@@ -263,7 +273,7 @@ class AddExit extends Component {
           <br/>
           <input
             name="altitude"
-            className="inputAuthForms"
+            className="inputAuthForms form__field"
             type="number"
             value={altitude}
             onChange={this.handleChange}
