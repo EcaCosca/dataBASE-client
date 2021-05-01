@@ -293,6 +293,18 @@ textarea {
 
 /* ADD EXIT */
 
+.approach-exit-landing-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .approach-exit-landing-container {
+    flex-direction: column;
+  }
+}
+
 .add-exit-head-container {
   display: flex;
   flex-direction: column;
@@ -313,6 +325,7 @@ textarea {
 .add-exit-div {
   background-color: rgba(190, 188, 188, 0.4);
   border-radius: 20px;
+  margin: 1em;
 }
 
 .exit-div {
