@@ -137,43 +137,54 @@ class AddExit extends Component {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Name</label>
-          <br/>
-          <input
-            className="inputAuthForms form__field"
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChange}
-          />
-          <br/>
-          <label>Image:</label>
-          <br/>
-          <input
-            name="image"
-            className="choseImg"
-            type="file"
-            onChange={this.handleFileUpload}
-          ></input>
-          <br/>
-          <span>
-            <img
-              style={{ width: "100px" }}
-              src={this.state.img && this.state.img}
-              alt=""
-            ></img>
-          </span>
-          <br />
-          <label>Altitude:</label>
-          <br/>
-          <input
-            name="altitude"
-            className="inputAuthForms form__field"
-            type="number"
-            value={altitude}
-            onChange={this.handleChange}
-          />
-          <br/>
+          <div className="add-exit-head-container">
+            <div className="exit-name-form-div">
+              <div className="create-button-container">
+                <button className="inputButton" type="submit" startIcon={<SaveIcon/>} variant="contained" color="primary" size=""><SaveIcon/>Create</button>
+              </div>
+              <label>Name</label>
+              <br/>
+              <input
+                className="inputAuthForms form__field"
+                type="text"
+                name="name"
+                value={name}
+                onChange={this.handleChange}
+              />
+              <br/>
+            </div>
+            <div className="image-selector-container">
+              <label>Image</label>
+              <br/>
+              <input
+                name="image"
+                className="choseImg"
+                type="file"
+                onChange={this.handleFileUpload}
+              ></input>
+              <br/>
+              <span>
+                <img
+                  style={{ width: "100px" }}
+                  src={this.state.img && this.state.img}
+                  alt=""
+                ></img>
+              </span>
+              <br />
+            </div>
+            <div className="altitude-form-container">
+              <label>Altitude</label>
+              <br/>
+              <input
+                name="altitude"
+                className="inputAuthForms form__field"
+                type="number"
+                value={altitude}
+                onChange={this.handleChange}
+              />
+              <br/>
+            </div>
+          </div>
 
           {/* APROACH */}
           
@@ -226,7 +237,7 @@ class AddExit extends Component {
 
           {/* EXIT */}
 
-          <div className="add-exit-div">
+          <div className="add-exit-div exit-div">
             <div className="latitude-longitud-container">              
               <h3>EXIT</h3>
               <button className="inputButton gpsButton" onClick={this.setExitLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" ><AddLocationIcon /></button>
@@ -276,7 +287,7 @@ class AddExit extends Component {
 
           {/* LANDING */}
 
-          <div className="add-exit-div">
+          <div className="add-exit-div landing-div">
             <div className="latitude-longitud-container">              
               <h3>LANDING</h3>
               <button className="inputButton gpsButton" onClick={this.setLandingZoneLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" ><AddLocationIcon /></button>
@@ -322,10 +333,6 @@ class AddExit extends Component {
               <br/>
             </div>
           </div>
-          <div>
-            <Button type="submit" startIcon={<SaveIcon/>} variant="contained" color="primary" size="">Create</Button>
-          </div>
-          <br/>
         </form>
       </div>
     );

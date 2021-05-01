@@ -293,9 +293,34 @@ textarea {
 
 /* ADD EXIT */
 
+.add-exit-head-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.exit-name-form-div {
+  margin: 0px 20px 0px;
+  text-align: left;
+  padding: 1em;
+}
+
+.altitude-form-container {
+  margin: 0px 20px 0px;
+  text-align: left;
+  padding: 1em;
+}
+
 .add-exit-div {
   background-color: rgba(190, 188, 188, 0.4);
   border-radius: 20px;
+}
+
+.exit-div {
+  background-color: rgba(118, 250, 140, 0.4);
+}
+
+.landing-div {
+  background-color: rgba(255, 106, 106, 0.4);
 }
 
 .latitude-longitud-container {
@@ -320,6 +345,12 @@ textarea {
 
 .description-container label {
   text-align: left;
+}
+
+.create-button-container {
+  margin: 30px;
+  padding: 5px;
+  align-items: center;
 }
 
 /* EXIT DETAIL */

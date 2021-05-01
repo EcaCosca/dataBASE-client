@@ -31,9 +31,9 @@ export class Home extends Component {
     const { listOfExits } = this.state;
     return (
       <div>
-        <h1>Exit Points</h1>
         <AddExit getAllExits={this.getAllExits}></AddExit>
 
+        <h1>Exit Points</h1>
         <div>
           {listOfExits.map((exit) => (
             <div key={exit._id}>
