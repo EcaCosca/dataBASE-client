@@ -164,6 +164,16 @@ class AddExit extends Component {
             ></img>
           </span>
           <br />
+          <label>Altitude:</label>
+          <br/>
+          <input
+            name="altitude"
+            className="inputAuthForms form__field"
+            type="number"
+            value={altitude}
+            onChange={this.handleChange}
+          />
+          <br/>
 
           {/* APROACH */}
           
@@ -261,48 +271,57 @@ class AddExit extends Component {
               <br/>
             </div>
           </div>
-          <label>Landing zone latitude:</label>
           <br/>
-          <input
-            name="landingZoneLat"
-            className="inputAuthForms form__field"
-            type="number"
-            value={landingZoneLat}
-            onChange={this.handleChange}
-          />
-          <br/>
-          <label>Landing zone longitude:</label>
-          <br/>
-          <input
-            name="landingZoneLong"
-            className="inputAuthForms form__field"
-            type="number"
-            value={landingZoneLong}
-            onChange={this.handleChange}
-          />
-          <br/>
-          <Button onClick={this.setLandingZoneLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" >Landing Zone GeoLocation</Button>
-          <br/>
-          <label>Landing zone description:</label>
-          <br/>
-          <textarea
-            className="textForms"
-            name="landingZoneDescription form__field"
-            type="text"
-            value={landingZoneDescription}
-            onChange={this.handleChange}
-          />
-          <br/>
-          <label>Altitude:</label>
-          <br/>
-          <input
-            name="altitude"
-            className="inputAuthForms form__field"
-            type="number"
-            value={altitude}
-            onChange={this.handleChange}
-          />
-          <br/>
+
+
+          {/* LANDING */}
+
+          <div className="add-exit-div">
+            <div className="latitude-longitud-container">              
+              <h3>LANDING</h3>
+              <button className="inputButton gpsButton" onClick={this.setLandingZoneLocation} startIcon={<GpsFixedIcon/>} variant="contained" color="primary" size="small" ><AddLocationIcon /></button>
+            </div>
+            <div className="latitude-longitud-container">
+              <div className="latitude-container">
+                <label>Latitude</label>
+                <br/>
+                <input
+                  name="landingZoneLat"
+                  className="inputAuthForms form__field"
+                  type="number"
+                  value={landingZoneLat}
+                  onChange={this.handleChange}
+                />
+                <br/>
+              </div>
+              <div className="longitud-container">
+                <label>Longitude</label>
+                <br/>
+                <input
+                  name="landingZoneLong"
+                  className="inputAuthForms form__field"
+                  type="number"
+                  value={landingZoneLong}
+                  onChange={this.handleChange}
+                />
+                <br/>
+              </div>
+            </div>
+            <div className="description-container">
+              <label>Description</label>
+              <br/>
+              <textarea
+                className="form__field"
+                name="landingZoneDescription form__field"
+                type="text"
+                value={landingZoneDescription}
+                onChange={this.handleChange}
+              />
+              <br/>
+              <br/>
+              <br/>
+            </div>
+          </div>
           <div>
             <Button type="submit" startIcon={<SaveIcon/>} variant="contained" color="primary" size="">Create</Button>
           </div>
