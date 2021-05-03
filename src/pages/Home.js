@@ -39,6 +39,7 @@ export class Home extends Component {
             <div key={exit._id}>
               <Link to={`/exitpoint/${exit._id}`}>
                 <Card>
+                  {/* change card layout */}
                   <CardActionArea>
                     <CardMedia
                       component="img"
